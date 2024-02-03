@@ -1,22 +1,34 @@
 package Queue;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.*;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
-public class QueueTest {
+class QueueTest {
+	Queue queue;
 	
+	@BeforeEach
+	void setUp () {
+		queue = new Queue();
+	}
 
 	@Test
-	public void test() {
-
+	void testInitialisation() {
+		
+		assertTrue(  queue.maxSize() == 10, "Length is equal to default size" );
 	}
 	
-	public void testIsEmpty () {
-		
-		
+	@Test
+	// TODO
+	void testNullList () {
+		queue.create( 0 );
 	}
 	
-	
+	@AfterEach
+	void tearDown () {
+		queue = null;
+	}
 
 }

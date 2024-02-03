@@ -2,14 +2,21 @@ package Queue;
 
 public class Queue {
 	
-	private int maxSize;
-	int tail = -1;
-	Object [] list;
+	final int DEFAULT_SIZE = 10;
+	private int tail = -1;
+	private Object [] list;
+	
+	Queue () {
+		create( DEFAULT_SIZE );
+	}
 	
 	public void create ( int maxNum ) {
-		maxSize = maxNum;
 		list = new Object[ maxNum ];
 		tail = -1;
+	}
+	
+	public int maxSize () {
+		return list.length;
 	}
 	
 	public void add ( Object newObj ) {
