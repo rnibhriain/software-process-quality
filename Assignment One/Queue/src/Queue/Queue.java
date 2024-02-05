@@ -27,14 +27,19 @@ public class Queue {
 	
 	public Object remove () {
 		
-		Object current = list[ 0 ];
-		for ( int i = 0; i < tail ; i++ ) {
-			list[ i ] = list[ i + 1 ];
+		if ( !isEmpty() ) {
+			Object current = list[ 0 ];
+			for ( int i = 0; i < tail ; i++ ) {
+				list[ i ] = list[ i + 1 ];
+			}
+			
+			tail--;
+			
+			return current;
 		}
 		
-		tail--;
 		
-		return current;
+		return null;
 		
 	}
 	
