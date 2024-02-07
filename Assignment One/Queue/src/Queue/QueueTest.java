@@ -84,6 +84,15 @@ class QueueTest {
 		assertTrue( queue.isEmpty(), "Make sure list returns empty" );
 	}
 	
+	@Test
+	void testAdding () {
+		
+	}
+	
+	@Test
+	void testRemoving () {
+		
+	}
 	
 
 	@AfterEach
