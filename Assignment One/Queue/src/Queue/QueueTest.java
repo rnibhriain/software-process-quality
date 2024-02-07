@@ -53,13 +53,38 @@ class QueueTest {
 	}
 	
 	@Test
-	void addToList () {
-		queue.create( 5 );
+	void addToDefaultList () {
+
 		Object obj = new Object();
 		queue.add( obj );
 		
+		assertTrue( queue.remove() == obj, "ensure object added is same as object removed");
 	
 	}
+	
+	@Test
+	void testLengthValues () {
+		
+		assertThrows( NegativeArraySizeException.class, () -> {
+			queue.create( -1 );
+		});
+		
+		assertThrows( OutOfMemoryError.class, () -> {
+			queue.create( Integer.MAX_VALUE );
+		});
+
+		queue.create( 20 );
+	
+		assertTrue(  queue.maxSize() == 20, "Length is equal to 20" );
+
+		assertTrue( queue.remove() == null, "Make sure there is null returned with remove function" );
+
+		assertTrue( queue.howMany() == 0, "Make sure there is nothing in the list" );
+
+		assertTrue( queue.isEmpty(), "Make sure list returns empty" );
+	}
+	
+	
 
 	@AfterEach
 	void tearDown () {
