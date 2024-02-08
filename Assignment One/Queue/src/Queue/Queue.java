@@ -20,9 +20,14 @@ public class Queue {
 	}
 	
 	public void add ( Object newObj ) {
-		tail++;
+		if ( tail + 1 < maxSize() ) {
+			tail++;
+			
+			list[ tail ] = newObj;
+		} else {
+			System.out.print( "Queue is full!" );
+		}
 		
-		list[ tail ] = newObj;
 	}
 	
 	public Object remove () {
@@ -37,6 +42,8 @@ public class Queue {
 			
 			return current;
 		}
+		
+		System.out.print("Queue was empty!");
 		
 		
 		return null;
