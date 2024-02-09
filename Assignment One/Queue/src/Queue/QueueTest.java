@@ -145,7 +145,21 @@ class QueueTest {
 
 		assertEquals(expectedOutput, outContent.toString());
 		
+	}
+	
+	@Test
+	void differentTypes () {
+		queue.create( 3 );
 		
+		Object obj = new Object();
+		queue.add(obj);
+		queue.add("1");
+		queue.add(14);
+		
+		assertTrue( queue.remove() == obj, "Make sure first object is removed" );
+		assertTrue( queue.remove() == "1", "Make sure first object is removed" );
+		assertTrue( queue.remove().equals(14), "Make sure first object is removed" );
+
 	}
 
 
