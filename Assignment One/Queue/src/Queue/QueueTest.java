@@ -162,6 +162,23 @@ class QueueTest {
 
 	}
 
+	@Test 
+	void removeAndAdd () {
+		queue.create( 3 );
+		
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outContent));
+		
+		assertTrue( queue.remove() == null, "Make sure first object is null" );
+		
+		String expectedOutput  = "Queue was empty!" ;
+
+		assertEquals(expectedOutput, outContent.toString());
+		
+		queue.add(1);
+		assertTrue( queue.remove().equals(1), "Make sure first object has been added correctly" );
+		
+	}
 
 	@AfterEach
 	void tearDown () {
