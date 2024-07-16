@@ -1,5 +1,5 @@
-# software-process-quality
-All Assignments for module CA650
+# Software Process Quality
+All Assignments for module: CA650
 
 ## Assignment One XUnit Testing
 - Queue implementation
